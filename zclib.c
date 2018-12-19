@@ -5,6 +5,7 @@
  */
 
 #include "zc.h"
+#include <sys/syscall.h>
 
 void set_sndbuf(int sock, int size)
 {
@@ -89,6 +90,8 @@ int get_mhz(void)
 	}
 }
 
+#if 0
+
 #ifndef SYS_sched_setaffinity
 #ifdef __powerpc__
 #define SYS_sched_setaffinity 222
@@ -103,8 +106,10 @@ int get_mhz(void)
 #endif
 #endif
 
+#endif
+
 #define sched_setaffinity(pid, len, new_mask) \
-	syscall(SYS_sched_setaffinity,(pid),(len),(new_mask))
+	syscall(__NR_sched_setaffinity,(pid),(len),(new_mask))
 
 void bond_to_cpus(unsigned long cpus)
 {

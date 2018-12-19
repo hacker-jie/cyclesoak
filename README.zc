@@ -1,3 +1,6 @@
+Ubuntu:
+sudo apt install libgdbm-dev
+make
 
 ZC - a tool for measuring the efficiency of Linux TCP transmission
 Andrew Morton <andrewm@uow.edu.au>                     27 Jan 2001
